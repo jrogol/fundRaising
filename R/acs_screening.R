@@ -221,7 +221,7 @@ query_acs <- function(var = c("B19013_001E", "B25077_001E"),
   # The first row of results contains the headers. Set the names and remove this row.
   colnames(results) <- results[1, ]
 
-  results <- dplyr::as_tibble(results[-1, ])
+  results <- dplyr::as_tibble(rbind(results[-1, ]))
 
   return(results)
 }
